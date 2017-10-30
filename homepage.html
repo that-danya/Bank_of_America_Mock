@@ -6,18 +6,31 @@
 <div id='sign-in-container'>
     <p>Secure Sign-In</p>
     <div id='inner-sign-in-container'>
-
+        <form class='enroll' action='/loan_application' method='POST'>
         <div id='online-id'>
-            <span>Online ID:</span>
+            <label>Online ID:</label><br>
+            <input type="text" name="username" class="span3">
         </div>
         <div id='save-id'>
-            <span>Save Online ID</span>
-        </div>
+            <label><input type="checkbox" name="save-id">Save Online ID</label>
+        </div><br>
         <div id='passcode'>
-            <span>Passcode:</span>
+            <label>Passcode:</label><br>
+            <input type="password" name="password" class="span3">
+        </div><br>
+        
+        <div id='enroll-link-container'>
+            <div id='submit-btn'>
+                <button type="button" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-lock"></span> Sign In
+                </button>
+                <span><a href="blank">Enroll</a></span><br>
+
+            </div>
         </div>
-        <div id='enroll-link-container'></div>
-        <div id='help-options'></div>
+        <br>
+        <div id='help-options'><a href="blank">&#x25B8; Sign-in help options</a></div>
+        </form>
 
     </div>
 

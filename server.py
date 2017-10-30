@@ -11,6 +11,12 @@ app.jinja_env.undefined = StrictUndefined
 app.jinja_env.auto_reload = True
 
 
+#landing page
+@app.route('/')
+def index():
+    """Homepage"""
+
+    return render_template('homepage.html')
 
 
 #####################################

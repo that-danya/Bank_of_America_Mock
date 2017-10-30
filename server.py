@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, render_template
+from jinja2 import StrictUndefined
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -14,9 +15,16 @@ app.jinja_env.auto_reload = True
 #landing page
 @app.route('/')
 def index():
-    """Homepage"""
+    """Homepage with logon portal."""
 
     return render_template('homepage.html')
+
+
+@app.route()
+def loan_application():
+    """Show loan application with uploading capability."""
+
+    return render_template('loan_app.html')
 
 
 #####################################

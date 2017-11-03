@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid"><img src="/static/images/BOA_header.png" style='max-width:100%'></div>
+<div class="container-fluid"><img src="/static/images/signin_banner.png" style='max-width:100%'></div>
+
+
+<div class="container-fluid" style='height:50px'>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-xs-10 col-xs-push-2" ><img src="/static/images/boa_image.png" style='max-width:750%'></div>
+<div id='sign-in-container' class='col-xs-2 col-xs-pull-10 rounded' style="background-color:#EE2A24; border-radius: 10px; border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;">
+    <p style="
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    color:#FFFFFF;
+    font-height:14px;
+    ">Secure Sign-In
+    <img style='max-width: 30px; float: right;
+    max-height: 20px;' src="/static/images/secure_logo.png"></p>
+
+    <div id='inner-sign-in-container' style="background-color:#FFFFFF ; border-radius: 10px; padding-bottom:10px;" class='col-xs-12'>
+        <form class='enroll' action='/application' method='POST'>
+        <div id='online-id' style='font-size:12px; line-height:13.2px; font-weight:bold;'>
+            <label style='padding-top: 10px;'>Online ID:</label><br>
+            <input type="text" name="username" class="border" style="width:145px; height:23px;">
+        </div>
+        <div id='save-id'>
+            <span style='font-size:11px'><input type="checkbox" name="save-id">&nbsp;Save Online ID</span>
+        </div>
+        <div id='passcode' style='font-size:12px'>
+            <label style='padding-top: 10px;'>Passcode:</label><br>
+            <input type="password" name="password" class="border" style="width:145px;">
+        </div>
+        
+        <div id='enroll-link-container' style='padding-top: 10px; padding-bottom:4px'>
+            <div id='submit-btn'>
+                <a href="/review_app" type="button" class="btn btn-primary" style='font-size:11px'>
+                    <span class="glyphicon glyphicon-lock"></span> Sign In
+                </a>
+                <span><a href="blank" style='font-size:11px'>&nbsp;&nbsp;&nbsp;Enroll</a></span>
+            </div>
+        </div>
+
+        <div id='help-options' style='font-size:11px'><a href="blank">&#x25B8; Sign-in help options</a></div>
+        </form>
+
+    </div>
+
+</div> 
+</div>
+</div>
+<!-- end sign-in-container -->
+
+{% endblock %}

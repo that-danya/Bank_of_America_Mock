@@ -5,18 +5,23 @@
 <div class="container-fluid"><img src="/static/images/progress4.png" style='max-width:100%'></div>
 
 <div class="container-fluid" style='background-color: #f9f7f4; max-width:100%'>
-    <h2 style='color:#00004d;'>Review & Submit</h2>
-    <div style="color:#6b5e51; font-size:20px;">Danya, you're almost done. Please check your information before you submit.</div>
+    <div><h2 style='color:#00004d;'>Review & Submit</h2>
+    <span style="color:#6b5e51; font-size:20px;">Danya, you're almost done. Please check your information before you submit.</span></div>
 
 <br>
 <hr class='style1'>
 <br>
 
-    <div class='headers'>About your loan</div><div> | <a href="#">Edit</a> </div>
+    <div class='headers'>About your loan</div><span> | <a href="#">Edit</a> </span></div>
+
+<form action='/forward_app' method='POST'>
+        <input id="input-b1" name="input-b1" type="file" class="file">
 
 <br>
 <hr class='style1'>
 <br>
+<a href="/application" type="button" class="btn btn-primary btn-lg">Submit Loan Application</a>
+</form>
 
 </div>
 {% endblock %}

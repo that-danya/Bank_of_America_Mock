@@ -1,9 +1,6 @@
 from jinja2 import StrictUndefined
-from flask import Flask, render_template, request, flash, redirect, session, jsonify
+from flask import Flask, render_template, request, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
-
-import os
-import re
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -18,16 +15,22 @@ app.jinja_env.auto_reload = True
 
 @app.route('/')
 def index():
-    """Homepage with logon portal."""
-
-    return render_template('homepage.html')
-
-
-@app.route('/application')
-def loan_application():
-    """Show loan application with uploading capability."""
+    """Auto loan application start page."""
 
     return render_template('loan_app.html')
+
+
+@app.route('/signin')
+def loan_application():
+    """Sign in."""
+
+    return render_template('signin.html')
+
+
+@app.route('/review_app')
+def review_app():
+
+    return render_template('review.html')
 
 
 # if running this page, run debugger, load to host

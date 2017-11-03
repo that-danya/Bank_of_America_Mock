@@ -1,1 +1,40 @@
-html {font:100% Verdana,Helvetica,sans-serif;color:#333;margin:0}
+html {
+    font:100% Verdana,Helvetica,sans-serif;
+    color:#333;margin:0
+}
+
+.style1 {
+    border: solid #ddd;
+    border-width: 1px 0 0;
+    clear: both;
+    height: 0;
+    margin: 1.25rem 0 1.1875rem;    
+}
+
+.drdown {
+    background-color: #ffffff;
+    border: 1px solid #d1c9c0;
+    font-size: 25px;
+    z-index: 10;
+    outline: none;
+    width: 500px;
+}
+
+.titles {
+    font-size:12px;
+    line-height:13.2px;
+    font-weight:bold;
+}
+
+.large {
+    transform: scale(1.5);
+}
+
+.headers {
+    color:#012169; 
+    line-height: 24px;
+    font-size: 22px; 
+    margin-bottom: 30px; 
+    font:Arial;
+    display:inline;
+}

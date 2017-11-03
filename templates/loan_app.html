@@ -4,5 +4,56 @@
 <div class="container-fluid"><img src="/static/images/auto_banner.png" style='max-width:100%'></div>
 <div class="container-fluid"><img src="/static/images/progress_1.png" style='max-width:100%'></div>
 
-test 2
+<div class="container-fluid" style='background-color: #f9f7f4; max-width:100%'>
+    <form action='/app2'>
+        <br><br>
+    <div><h2 style='color:#00004d; display:inline'>Get Started</h2> &nbsp;<span>| &nbsp;<a href="/signin">Or continue a saved application</a></span><br></div>
+    
+    <div style="color:#6b5e51; font-size:20px;"><br>Welcome. Apply in just minutes.<br></div>
+    
+    <br>
+    <hr class='style1'> 
+    <br>
+
+    <div class='titles'>
+    <label style='padding-top: 14Spx;'>Loan type:</label><br>
+    <div class="input-group-btn">
+
+    <button type="button" class="drdown selectpicker btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span style='float:right'>&#x2228;</span>
+        <span class="sr-only">Toggle Dropdown</span>
+    </button>
+        <ul class="dropdown-menu" role="menu" style='font-size:20px'>
+            <li><a href="#"><i class="fa fa-check"></i> <span class="search-option">Dealer purchase</span></a>
+            </li>
+            <li><a href="#"><span class="search-option">Refinance</span></a>
+            </li>
+            <li><a href="#"><span class="search-option">Lease buyout</span></a>
+            </li>
+            <li><a href="#"><span class="search-option">Private party</span></a>
+            </li>
+        </ul>
+    </div>
+    </div>
+    <br><br>
+    <br>
+    <hr class='style1'> 
+    <br>
+
+    <div style='color:#012169; line-height: 24px;
+    font-size: 22px; margin-bottom: 30px; font:Arial;'>Are you a Bank of America Online Banking customer?<br></div>
+    <div><input type='checkbox' class='large'>&nbsp; &nbsp; Yes. Prefill and customize my application with my account information.</div>
+
+    <br>
+    <hr class='style1'> 
+    <br>
+
+    <a href="/application" type="button" class="btn btn-primary btn-lg">Continue</a>
+    <a href="/application" type="button" class="btn btn-link btn-lg" >Return to Overview</a>
+
+    </form>
+
+
+</div>
+
+
 {% endblock %}

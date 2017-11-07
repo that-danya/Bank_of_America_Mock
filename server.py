@@ -1,8 +1,9 @@
+import os
 from jinja2 import StrictUndefined
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect
 from flask_debugtoolbar import DebugToolbarExtension
 
-from boxsdk import OAuth2
+from boxsdk import OAuth2, Client
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -14,23 +15,25 @@ app.secret_key = 'duuuuude. this is an app!!'
 app.jinja_env.undefined = StrictUndefined
 app.jinja_env.auto_reload = True
 
-from boxsdk import OAuth2
+
+def oauth():
+    YOUR_CLIENT_ID = os.environ['YOUR_CLIENT_ID']
+    YOUR_CLIENT_SECRET = os.environ['YOUR_CLIENT_SECRET']
+    YOUR_AUTH_CODE = os.environ['YOUR_AUTH_CODE']
 
 
-def authenticate():
     oauth = OAuth2(
-        client_id='YOUR_CLIENT_ID',
-        client_secret='YOUR_CLIENT_SECRET',
-        store_tokens=store_tokens,
+        client_id=YOUR_CLIENT_ID,
+        client_secret=YOUR_CLIENT_SECRET,
+
     )
 
-    auth_url, csrf_token = oauth.get_authorization_url(http://127.0.0.1, http://0.0.0.0, and http://localhost)
 
-    # Make sure that the csrf token you get from the `state` parameter
-    # in the final redirect URI is the same token you get from the
-    # get_authorization_url method.
-    assert 'THE_CSRF_TOKEN_YOU_GOT' == csrf_token
-    access_token, refresh_token = oauth.authenticate('YOUR_AUTH_CODE')
+    auth_url, csrf_token = oauth.get_authorization_url('http://localhost:5000/review_app')
+    access_token, refresh_token = oauth.authenticate(YOUR_AUTH_CODE)
+
+    client = Client(oauth)
+
 
 def store_tokens(access_token, refresh_token):
 
@@ -51,10 +54,36 @@ def loan_application():
     return render_template('signin.html')
 
 
-@app.route('/review_app')
+@app.route('/review_app', methods=['GET'])
 def review_app():
 
     return render_template('review.html')
+
+
+@app.route('/review_app', methods=['POST'])
+def get_file():
+
+    filename = request.form['input-b1']
+    upload_file(client, filename)
+
+    return redirect('/success')
+
+
+@app.route('/success')
+def success():
+
+    return render_template('success.html')
+
+
+def upload_file(client, filename):
+    root_folder = client.folder(folder_id='0')
+    file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), filename)
+    a_file = root_folder.upload(file_path, file_name='i-am-a-file.txt')
+    try:
+        print('{0} uploaded: '.format(a_file.get()['name']))
+    finally:
+        print('Delete filename succeeded: {0}'.format(a_file.delete()))
+
 
 
 # if running this page, run debugger, load to host
